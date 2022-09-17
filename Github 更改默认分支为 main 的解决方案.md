@@ -50,6 +50,21 @@ Github默认的主分支从2020年10月1日起已经由master改为了main(在�
 
 如果当前分支与多个主机存在追踪关系，则可以使用 -u 选项指定一个默认主机，这样后面就可以不加任何参数使用git push。 上面命令将本地的 main 分支推送到 origin 主机，同时指定 origin 为默认主机，后面就可以不加任何参数使用git push了。
 
+注意，如果报错，提示：
+
+```ASN.1
+(base) Humbert@HumbertCheungs-Pro-16 transform-web % git push -u origin main
+To github.com:humbertcheung/Model-Transformer.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'git@github.com:humbertcheung/Model-Transformer.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+
+那么建议在push时添加 -f 标记：`git push -u -f origin main`
+
 ### （5）删除 master 分支
 
 最后，我们删除 master 分支即可，后续我们就直接使用 main 为主分支了
